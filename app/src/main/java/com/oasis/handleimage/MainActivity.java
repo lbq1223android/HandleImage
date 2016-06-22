@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oasis.handleimage.bean.FuctionBean;
+import com.oasis.handleimage.ui.ImageToneActivity;
 import com.oasis.handleimage.ui.LightActivity;
 
 import java.util.ArrayList;
@@ -28,9 +29,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setColor(this,getResources().getColor( R.color.app_basecolor));
+        setColor(this, getResources().getColor(R.color.app_basecolor));
 
         mList.add(new FuctionBean("亮度 对比度 饱和度", LightActivity.class)) ;
+        mList.add(new FuctionBean("亮度 对比度 饱和度2", ImageToneActivity.class)) ;
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new BaseAdapter() {

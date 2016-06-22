@@ -34,12 +34,6 @@ public class BaseActivity extends Activity {
     };
 
     protected DisplayImageOptions imageOptions ;
-
-
-
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +43,7 @@ public class BaseActivity extends Activity {
 
         imageOptions = new DisplayImageOptions.Builder()
                 .bitmapConfig(Bitmap.Config.RGB_565)
-                .cacheInMemory(true)
+                .cacheInMemory(false)
                 .build();
 
 
