@@ -53,6 +53,7 @@ public class LightActivity extends BaseActivity {
 
     private final int MAX_VALUE = 255;
     private final int MID_VALUE = 127;
+    private ColorMatrix mAllMatrix;
 
     /**
      * 在缓存文件夹下的文件名
@@ -139,15 +140,22 @@ public class LightActivity extends BaseActivity {
                 Canvas canvas = new Canvas(bmp);
                 Paint paint = new Paint(); // 新建paint
                 paint.setAntiAlias(true);
+
+                if (null == mAllMatrix) {
+                    mAllMatrix = new ColorMatrix();
+                }
                 if(cMatrix==null){
                     cMatrix = new ColorMatrix();
                 }
                 cMatrix.reset();
                 // 设置饱和度
                 cMatrix.setSaturation(progress * 1.0f / MID_VALUE);
-                paint.setColorFilter(new ColorMatrixColorFilter(cMatrix));
+
+                mAllMatrix.reset();
+                mAllMatrix.postConcat(cMatrix) ;
+                paint.setColorFilter(new ColorMatrixColorFilter(mAllMatrix));
                 // 在Canvas上绘制一个已经存在的Bitmap。这样，dstBitmap就和srcBitmap一摸一样了
-                canvas.drawBitmap(dstBitmap, 0, 0, paint);
+                canvas.drawBitmap(srcBitmap, 0, 0, paint);
                 imageView.setImageBitmap(bmp);
               //  temBitmap = bmp ;
 //                saveBitmap(bmp, fileName) ;
@@ -197,7 +205,11 @@ public class LightActivity extends BaseActivity {
                 Toast.makeText(LightActivity.this, path.get(0) + "", Toast.LENGTH_LONG).show();
                 //ImageLoader.getInstance().displayImage(ImageDownloader.Scheme.FILE.wrap(path.get(0)+),);
                 pathName = path.get(0) ;
-                File srcfile = new File(pathName) ;
+                ImageLoader.getInstance().displayImage(ImageDownloader.Scheme.FILE.wrap(pathName),imageView,imageOptions);
+                srcBitmap = BitmapFactory.decodeFile(pathName);
+                imgHeight = srcBitmap.getHeight();
+                imgWidth = srcBitmap.getWidth();
+                /*File srcfile = new File(pathName) ;
                 if(srcfile.exists()&&srcfile!=null){
                     String filename = srcfile.getName() ;
                     fileName = filename ;
@@ -220,7 +232,7 @@ public class LightActivity extends BaseActivity {
                  ImageLoader.getInstance().displayImage(ImageDownloader.Scheme.FILE.wrap(desfile.getAbsolutePath()),imageView,imageOptions);
                 dstBitmap = BitmapFactory.decodeFile(desfile.getAbsolutePath());
                 imgHeight = dstBitmap.getHeight();
-                imgWidth = dstBitmap.getWidth();
+                imgWidth = dstBitmap.getWidth();*/
 
             }
         }
