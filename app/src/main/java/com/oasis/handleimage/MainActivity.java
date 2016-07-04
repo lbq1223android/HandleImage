@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oasis.handleimage.bean.FuctionBean;
+import com.oasis.handleimage.ui.GpuDemoOne;
 import com.oasis.handleimage.ui.ImageToneActivity;
 import com.oasis.handleimage.ui.LightActivity;
 
@@ -33,6 +34,8 @@ public class MainActivity extends Activity {
 
         mList.add(new FuctionBean("亮度 对比度 饱和度", LightActivity.class)) ;
         mList.add(new FuctionBean("亮度 对比度 饱和度2", ImageToneActivity.class)) ;
+        mList.add(new FuctionBean("Gpu" +
+                "demo", GpuDemoOne.class)) ;
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new BaseAdapter() {
