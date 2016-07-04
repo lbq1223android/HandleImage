@@ -88,15 +88,38 @@ public class LightActivity extends BaseActivity {
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
         seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
+
         seekBar2.setProgress(MID_VALUE);
         seekBar2.setMax(MAX_VALUE);
 
 
+        seekBar.setProgress(MID_VALUE);
+        seekBar.setMax(MAX_VALUE);
 
+        srcBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.rt);
+        imgHeight = srcBitmap.getHeight();
+        imgWidth = srcBitmap.getWidth();
+        imageView.setImageBitmap(srcBitmap);
+
+        //亮度
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Bitmap bmp = Bitmap.createBitmap(imgWidth, imgHeight,
+                        Bitmap.Config.ARGB_8888);
+                float brightness = (progress - MID_VALUE) * 1.0F / MID_VALUE * 180 ;
+                ColorMatrix cMatrix = new ColorMatrix();
+                cMatrix.set(new float[] { 1, 0, 0, 0, brightness, 0, 1,
+                        0, 0, brightness,// 改变亮度
+                        0, 0, 1, 0, brightness, 0, 0, 0, 1, 0 });
 
+                Paint paint = new Paint();
+                paint.setColorFilter(new ColorMatrixColorFilter(cMatrix));
+
+                Canvas canvas = new Canvas(bmp);
+                // 在Canvas上绘制一个已经存在的Bitmap。这样，dstBitmap就和srcBitmap一摸一样了
+                canvas.drawBitmap(srcBitmap, 0, 0, paint);
+                imageView.setImageBitmap(bmp);
             }
 
             @Override
@@ -110,10 +133,26 @@ public class LightActivity extends BaseActivity {
             }
         });
 
+        //对比度
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Bitmap bmp = Bitmap.createBitmap(imgWidth, imgHeight,
+                        Bitmap.Config.ARGB_8888);
+                float contrast = (float) ((progress + 64) / 128.0);
+                ColorMatrix cMatrix = new ColorMatrix();
+                cMatrix.set(new float[] { contrast, 0, 0, 0, 0, 0,
+                        contrast, 0, 0, 0,// 改变对比度
+                        0, 0, contrast, 0, 0, 0, 0, 0, 1, 0 });
 
+                Paint paint = new Paint();
+                paint.setColorFilter(new ColorMatrixColorFilter(cMatrix));
+
+                Canvas canvas = new Canvas(bmp);
+                // 在Canvas上绘制一个已经存在的Bitmap。这样，dstBitmap就和srcBitmap一摸一样了
+                canvas.drawBitmap(srcBitmap, 0, 0, paint);
+
+                imageView.setImageBitmap(bmp);
             }
 
             @Override
