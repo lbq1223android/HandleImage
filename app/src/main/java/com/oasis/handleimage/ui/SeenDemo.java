@@ -41,13 +41,15 @@ public class SeenDemo extends Activity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fileName = System.currentTimeMillis() + ".jpg";
+                /*String fileName = System.currentTimeMillis() + ".jpg";
                 mGPUImageView.saveToPictures("oasis_GPUImage", fileName, new GPUImageView.OnPictureSavedListener() {
                     @Override
                     public void onPictureSaved(Uri uri) {
                         Toast.makeText(SeenDemo.this,uri.toString(),Toast.LENGTH_LONG).show();
                     }
-                });
+                });*/
+
+               // mGPUImageView.setFilter(new GPUImageFilter()); 可以恢复原图？
             }
         });
 
