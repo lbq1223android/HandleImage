@@ -32,8 +32,8 @@
         <activity android:name=".ui.ActivityCamera"
             android:screenOrientation="portrait"
             >
-
         </activity>
+        <activity android:name=".ui.SeenDemo"></activity>
 
         <activity
             android:configChanges="orientation|screenSize"

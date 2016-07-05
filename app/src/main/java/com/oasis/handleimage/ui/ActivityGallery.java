@@ -115,6 +115,8 @@ public class ActivityGallery extends Activity implements OnSeekBarChangeListener
             mGPUImageView.setFilter(mFilter);
             mFilterAdjuster = new GPUImageFilterTools.FilterAdjuster(mFilter);
 
+
+
             findViewById(R.id.seekBar).setVisibility(
                     mFilterAdjuster.canAdjust() ? View.VISIBLE : View.GONE);
         }
