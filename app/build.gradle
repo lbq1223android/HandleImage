@@ -15,6 +15,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            jniDebuggable true
+        }
+        debug {
+            jniDebuggable true
         }
     }
 }
@@ -26,4 +30,5 @@ dependencies {
     compile 'com.github.lovetuzitong:MultiImageSelector:1.1'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     compile files('libs/commons-io-2.4.jar')
+    compile project(':gpuimageplus')
 }
