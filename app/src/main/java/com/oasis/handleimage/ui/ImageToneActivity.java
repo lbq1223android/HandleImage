@@ -21,6 +21,8 @@ public class ImageToneActivity extends Activity implements SeekBar.OnSeekBarChan
     private ImageView mImageView;
     private Bitmap mBitmap;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
