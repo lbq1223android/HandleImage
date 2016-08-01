@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oasis.handleimage.bean.FuctionBean;
+import com.oasis.handleimage.ui.CropDemo;
 import com.oasis.handleimage.ui.GpuDemoOne;
 import com.oasis.handleimage.ui.ImageToneActivity;
 import com.oasis.handleimage.ui.LightActivity;
@@ -33,12 +34,15 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         setColor(this, getResources().getColor(R.color.app_basecolor));
 
+        /*以java的方式 效率太低  舍去
         mList.add(new FuctionBean("亮度 对比度 饱和度", LightActivity.class)) ;
-        mList.add(new FuctionBean("亮度 对比度 饱和度2", ImageToneActivity.class)) ;
+        mList.add(new FuctionBean("亮度 对比度 饱和度2", ImageToneActivity.class)) ;*/
         mList.add(new FuctionBean("Gpu" +
                 "demo", GpuDemoOne.class)) ;
-        mList.add(new FuctionBean("gpu 亮度" +
+        mList.add(new FuctionBean("gpu 亮度 对比度 复合！" +
                 "demo", SeenDemo.class)) ;
+        mList.add(new FuctionBean("图片裁剪（框子固定）" +
+                "demo", CropDemo.class)) ;
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new BaseAdapter() {
