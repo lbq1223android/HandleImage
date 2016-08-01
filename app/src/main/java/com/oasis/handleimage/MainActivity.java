@@ -20,6 +20,7 @@ import com.oasis.handleimage.ui.Filter;
 import com.oasis.handleimage.ui.GpuDemoOne;
 import com.oasis.handleimage.ui.ImageToneActivity;
 import com.oasis.handleimage.ui.LightActivity;
+import com.oasis.handleimage.ui.Reverse;
 import com.oasis.handleimage.ui.SeenDemo;
 
 import java.util.ArrayList;
@@ -46,6 +47,8 @@ public class MainActivity extends Activity {
                 "demo", CropDemo.class)) ;
         mList.add(new FuctionBean("滤镜" +
                 "demo", Filter.class)) ;
+        mList.add(new FuctionBean("旋转变换" +
+                "demo", Reverse.class)) ;
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new BaseAdapter() {

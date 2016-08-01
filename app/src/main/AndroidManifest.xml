@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.LightActivity"></activity>
+        <activity android:name=".ui.Reverse"></activity>
         <activity android:name=".ui.ImageToneActivity"></activity>
         <activity android:name=".ui.GpuDemoOne"></activity>
         <activity android:name=".ui.ActivityGallery"></activity>
