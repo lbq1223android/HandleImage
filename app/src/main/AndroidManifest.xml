@@ -38,6 +38,10 @@
             android:screenOrientation="portrait"
             >
         </activity>
+        <activity android:name=".ui.Filter"
+            android:screenOrientation="portrait"
+            >
+        </activity>
 
         <activity
             android:configChanges="orientation|screenSize"
