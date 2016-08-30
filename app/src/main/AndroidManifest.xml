@@ -38,7 +38,12 @@
             android:screenOrientation="portrait"
             >
         </activity>
-        <activity android:name=".ui.Filter"
+        <activity android:name=".ui.FilterOne"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+        <activity android:name=".ui.FilterTwo"
             android:screenOrientation="portrait"
             >
         </activity>

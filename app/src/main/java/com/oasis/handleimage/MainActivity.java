@@ -16,10 +16,9 @@ import android.widget.TextView;
 
 import com.oasis.handleimage.bean.FuctionBean;
 import com.oasis.handleimage.ui.CropDemo;
-import com.oasis.handleimage.ui.Filter;
+import com.oasis.handleimage.ui.FilterOne;
+import com.oasis.handleimage.ui.FilterTwo;
 import com.oasis.handleimage.ui.GpuDemoOne;
-import com.oasis.handleimage.ui.ImageToneActivity;
-import com.oasis.handleimage.ui.LightActivity;
 import com.oasis.handleimage.ui.SeenDemo;
 
 import java.util.ArrayList;
@@ -44,8 +43,11 @@ public class MainActivity extends Activity {
                 "demo", SeenDemo.class)) ;
         mList.add(new FuctionBean("图片裁剪（框子固定）" +
                 "demo", CropDemo.class)) ;
+        mList.add(new FuctionBean("滤镜   gpu plus" +
+                "demo", FilterOne.class)) ;
         mList.add(new FuctionBean("滤镜" +
-                "demo", Filter.class)) ;
+                "github.zomato", FilterTwo.class)) ;
+
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new BaseAdapter() {

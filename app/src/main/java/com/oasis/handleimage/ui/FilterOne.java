@@ -15,7 +15,7 @@ import org.wysaid.view.ImageGLSurfaceView;
 /**
  * Created by oasis_oliwen on 2016/7/12.
  */
-public class Filter extends BaseActivity {
+public class FilterOne extends BaseActivity {
 
     private Bitmap _bitmap;
     private ImageGLSurfaceView _imageView;
