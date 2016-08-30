@@ -38,8 +38,9 @@ public class FilterTwo extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Filter filter = new Filter() ;
-                filter.addSubFilter(new SaturationSubfilter(1.3f));
-                Bitmap outputImage = filter.processFilter(_bitmap);
+                filter.addSubFilter(new SaturationSubfilter(1.5f));
+                Bitmap outputImage = filter.processFilter(_bitmap.copy(Bitmap.Config.ARGB_8888,true)
+                );
                 _imageView.setImageBitmap(outputImage);
             }
         });
