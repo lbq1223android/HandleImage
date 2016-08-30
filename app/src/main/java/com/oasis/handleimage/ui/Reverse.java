@@ -9,11 +9,12 @@ import android.widget.ImageView;
 
 import com.oasis.handleimage.BaseActivity;
 import com.oasis.handleimage.R;
+import com.oasis.handleimage.util.PhotoUtils;
 //import com.oasis.handleimage.util.PhotoUtils;
 
 public class Reverse extends BaseActivity {
 
-   /* Button fanzhuanButton , zuoyoujingmin ,shangxiajingmian ;
+   Button fanzhuanButton , zuoyoujingmin ,shangxiajingmian ;
 
         ImageView imageView ;
         Bitmap bb ;
@@ -69,5 +70,5 @@ public class Reverse extends BaseActivity {
         });
 
 
-    }*/
+    }
 }
